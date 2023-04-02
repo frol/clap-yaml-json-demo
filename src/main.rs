@@ -14,7 +14,7 @@ fn main() {
     let command = Command::parse();
 
     match command {
-        Command::YamlToJson { filename, .. } => {
+        Command::YamlToJson { filename } => {
             let yaml_value: serde_yaml::Value = serde_yaml::from_reader(std::fs::File::open(&filename).unwrap()).unwrap();
             println!("{}", serde_json::to_string_pretty(&yaml_value).unwrap());
         }
